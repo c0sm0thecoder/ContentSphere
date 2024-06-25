@@ -47,7 +47,7 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     {% else %}
-    <p><a href="#">Sign in</a> to add a comment.</p>
+    <p><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</a> to add a comment.</p>
     {% endif %} {% for comment in post.comments.all %}
     <div class="comment mt-3 p-3 border rounded">
       <p>
