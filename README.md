@@ -35,11 +35,11 @@ Before you begin, ensure you have the following installed:
    python -m venv venv
    ```
    Activate the virtual environment:
-   _On Windows:
+   * On Windows:
     ```sh
     .\venv\Scripts\activate
     ```
-   _On Unix or MacOS:
+   * On Unix or MacOS:
    ```sh
    source venv/bin/activate
    ```
