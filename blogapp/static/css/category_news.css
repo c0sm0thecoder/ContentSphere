@@ -9,6 +9,7 @@ a {
   border-radius: 8px;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   margin-bottom: 20px;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -21,10 +22,10 @@ a {
 }
 
 .news-item img {
-  width: 250px;
+  width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px 8px 0 0;
 }
 
 .news-item div {
@@ -33,6 +34,12 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.news-item h5,
+.news-item p,
+.news-item p:last-child {
+  text-align: center;
 }
 
 .news-item h5 {
@@ -44,14 +51,43 @@ a {
 
 .news-item p {
   color: #666;
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-top: 10px;
   line-height: 1.4;
 }
 
 .news-item p:last-child {
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #999;
   margin-top: auto;
+}
+
+@media (min-width: 768px) {
+  .news-item {
+    flex-direction: row;
+  }
+
+  .news-item img {
+    width: 250px;
+    border-radius: 8px 0 0 8px;
+  }
+
+  .news-item h5,
+  .news-item p,
+  .news-item p:last-child {
+    text-align: left;
+  }
+
+  .news-item h5 {
+    font-size: 1.75rem;
+  }
+
+  .news-item p {
+    font-size: 1.25rem;
+  }
+
+  .news-item p:last-child {
+    font-size: 1.1rem;
+  }
 }

@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-z8@kn1ipav*_9(*(ln((9($44^c516lt4a#6grf2&i-(z4lt4r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cosmootto.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 AUTH_USER_MODEL = "user.User"
 AUTHENTICATION_BACKENDS = ["user.backends.EmailBackend"]
@@ -191,6 +191,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "blogapp/static"]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

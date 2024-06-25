@@ -172,13 +172,13 @@ def contact_view(request):
             contact = Contact.objects.first()
             contact_email = contact.contact_email if contact else 'defaultemail@example.com'
             
-            send_mail(
-                subject='Contact Form Submission',
-                message=form.cleaned_data['message'],
-                from_email=form.cleaned_data['email'],
-                recipient_list=[contact_email],
-            )
-            return redirect('/')
+            # send_mail(
+            #     subject='Contact Form Submission',
+            #     message=form.cleaned_data['message'],
+            #     from_email=form.cleaned_data['email'],
+            #     recipient_list=[contact_email],
+            # )
+            return redirect('contact')
     else:
         form = ContactForm()
     return render(request, 'blogapp/contact.html', {'form': form})
