@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-z8@kn1ipav*_9(*(ln((9($44^c516lt4a#6grf2&i-(z4lt4r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cosmootto.pythonanywhere.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['cosmootto.pythonanywhere.com', 'localhost', '127.0.0.1', 'contentsphere.onrender.com']
 
 AUTH_USER_MODEL = "user.User"
 AUTHENTICATION_BACKENDS = ["user.backends.EmailBackend"]
