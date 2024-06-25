@@ -1,0 +1,61 @@
+{% extends './base.html' %}
+{% load static %}
+{%block content %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+<div class="container mt-5">
+  <a href="{% url 'post_detail' featured_post.id %}">
+    <div class="row align-items-center mb-5 featured-post">
+      <div class="col-md-6">
+        <img
+          src="{{ featured_post.cover_image.url }}"
+          class="img-fluid rounded shadow-sm featured-image"
+          alt="{{ featured_post.title }}"
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="featured-text p-4">
+          <h1 class="display-5">{{ featured_post.title }}</h1>
+          <p class="lead">{{featured_post.contents|truncatewords:30 }}</p>
+          <p class="author-name">By {{ featured_post.author }}</p>
+        </div>
+      </div>
+    </div>
+  </a>
+  <div class="row">
+    {% for category, context in categories_with_posts.items %}
+    <div class="col-12 mb-4">
+      <h3>
+        <a href="{% url 'category_news' context.code %}" class="category-link"
+          >{{ category }}</a
+        >
+      </h3>
+      <div class="row">
+        {% for post in context.posts|slice:":3" %}
+        <div class="col-md-4 d-flex align-items-stretch">
+          <a
+            href="{% url 'post_detail' post.id %}"
+            class="text-decoration-none text-dark"
+          >
+            <div class="card mb-4 shadow-sm">
+              <img
+                src="{{ post.cover_image.url }}"
+                class="card-img-top rounded"
+                alt="{{ post.title }}"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.contents|truncatewords:20 }}</p>
+                <p class="author-name mt-auto">By {{ post.author }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

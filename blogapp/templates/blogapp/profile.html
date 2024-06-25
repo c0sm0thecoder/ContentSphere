@@ -1,0 +1,54 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% block content %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+{% endblock %}
+
+<div class="container mt-4">
+  <div class="profile-header">
+    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+    <p>Username: {{ user.username }}</p>
+    <p>Joined on: {{ user.date_joined|date:"Y-m-d" }}</p>
+  </div>
+
+  <div class="profile-sections">
+    <div class="section">
+      <h3>My Blogs</h3>
+      <a href="{% url 'create_post' %}" class="btn btn-primary mb-2">Create New Post</a>
+      {% for post in posts %}
+      <div class="post-item mb-3">
+        <a href="{% url 'post_detail' post.id %}">
+          <h5>{{ post.title }}</h5>
+        </a>
+        <p>{{ post.contents|truncatewords:20 }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="section">
+      <h3>Comments</h3>
+      {% for comment in comments %}
+      <div class="comment-item mb-3">
+        <a href="{% url 'post_detail' comment.post.id %}">
+          <h5>{{ comment.post.title }}</h5>
+        </a>
+        <p>{{ comment.contents }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="section">
+      <h3>Likes</h3>
+      {% for post in liked_posts %}
+      <div class="like-item mb-3">
+        <a href="{% url 'post_detail' post.id %}">
+          <h5>{{ post.title }}</h5>
+        </a>
+        <p>{{ post.contents|truncatewords:20 }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

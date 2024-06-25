@@ -1,0 +1,53 @@
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .profile-header p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+  
+  .profile-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .section {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .section h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .post-item, .comment-item, .like-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .post-item:last-child, .comment-item:last-child, .like-item:last-child {
+    border-bottom: none;
+  }
+  
+  .post-item h5, .comment-item h5, .like-item h5 {
+    font-size: 1.25rem;
+    color: #007bff;
+  }
+  
+  .post-item p, .comment-item p, .like-item p {
+    font-size: 1rem;
+    color: #666;
+  }
+  

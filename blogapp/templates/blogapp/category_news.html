@@ -1,0 +1,22 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% block content %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/category_news.css' %}" />
+{% endblock %}
+<div class="container mt-4">
+  <h2>{{ category_name }} News</h2>
+  {% for post in posts %}
+  <a href="{% url 'post_detail' post.id %}">
+  <div class="news-item mb-4">
+      <img src="{{ post.cover_image.url }}" alt="{{ post.title }}" />
+      <div>
+        <h5>{{ post.title }}</h5>
+        <p>{{ post.contents|truncatewords:20 }}</p>
+        <p>By {{ post.author }} on {{ post.date_posted|date:"Y-m-d" }}</p>
+      </div>
+  </div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}
